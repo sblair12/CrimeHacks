@@ -12,13 +12,26 @@
 	<link href='https://fonts.googleapis.com/css?family=Lato:400,300,400italic,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-
+<h1>Visualization for Crimes near WashU</h1>
 	<div class="container">
-
-		<h1>Visualization for Crimes near WashU</h1>
-	<div id="offCampus"></div>
+		<button id = "bttn" onclick="hider()">Click to show </button>
+		<form class="form">
+			<div class="form-group">
+				<label for="ranking-type" >Group by</label>
+				<select class="form-control" id="ranking-type" onchange="holding()">
+					<option value= "0" >All</option>
+					<option value= "1" >Burglaries</option>
+					<option value= "2" >Robberies</option>
+					<option value= "3" >Carjackings</option>
+					<option value= "4" >Sexual Misconduct</option>
+				</select>
+			</div>
+		</form>
 	</div>
-
+	<div id="campus">
+		<div id="onCampus" class="hidden"></div>
+		<div id="offCampus" class ="show"></div>
+	</div>
 
 	<!-- Load JS libraries: jQuery, bootstrap, D3 -->
 	<script src="js/jquery.min.js"></script>

@@ -6,7 +6,7 @@ body {
 
 h1 {
   color: #865F3C;
-  margin-top: 40px;
+  margin-top: 20px;
   font-weight: 300;
 }
 
@@ -21,8 +21,13 @@ h2 {
 /*    FORM   */
 /*************/
 
+.form{
+  margin:0;
+  width:20%;
+}
+
 .form-inline {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .form-control {
@@ -55,38 +60,62 @@ h2 {
 }
 
 
+
 /***************/
 /*  BAR CHART  */
 /***************/
 
-.bar {
-  fill: #8E7060;
+/*.bar {*/
+  /*fill: #8E7060;*/
+/*}*/
+
+/*.axis {*/
+  /*font: 10px sans-serif;*/
+  /*fill: #333;*/
+/*}*/
+
+/*.axis-title {*/
+  /*fill: #9C8B83;*/
+  /*font-size: 11px;*/
+/*}*/
+
+/*.axis path,*/
+/*.axis line {*/
+  /*fill: none;*/
+  /*stroke: #333;*/
+  /*shape-rendering: crispEdges;*/
+/*}*/
+
+/*.x-axis {*/
+  /*font-size: 12px;*/
+/*}*/
+
+/*.x-axis path {*/
+  /*display: none;*/
+/*}*/
+svg#canvas2{
+  background-image: url(map.jpg);
 }
 
-.axis {
-  font: 10px sans-serif;
-  fill: #333;
+svg#canvas{
+  background-image: url(map2.jpg)
 }
 
-.axis-title {
-  fill: #9C8B83;
-  font-size: 11px;
-}
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #333;
-  shape-rendering: crispEdges;
-}
-
-.x-axis {
-  font-size: 12px;
-}
-
-.x-axis path {
+.hidden{
   display: none;
 }
-svg#canvas{
-  background-image: url(map2.png)
+.show{
+  display: block;
 }
+#bttn{
+  display: inline-block;
+}
+#offCampus{
+  margin: auto;
+  width: 85%
+}
+#onCampus{
+  margin:auto;
+  width: 85%;
+}
+
