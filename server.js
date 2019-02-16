@@ -26,7 +26,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 const Crime = require('./models/crime.js');
 
 //ENDPOINTS
-app.post('/data', (req, res) => {
+app.get('/data', (req, res) => {
 	
 	Crime.find({}, 
 	(err, crimes) => {
@@ -42,7 +42,7 @@ app.post('/data', (req, res) => {
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get('*', function(req, res) {
-  res.sendfile('./public/login.html');
- });
+  res.sendfile('./public/index.html');
+});
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
