@@ -7,7 +7,7 @@ function update(error, data) {
 	console.log(data);
 	var margin = {top: 40, right: 10, bottom: 60, left: 10};
 
-	var width2 = 1150 - 60 - margin.right;
+	var width2 = 1100 - 60 - margin.right;
 	var height2 = 860 - margin.top - margin.bottom;
 	var svg2 = d3.select("#onCampus").append("svg")
 		.attr("width", width2)
@@ -37,7 +37,7 @@ function update(error, data) {
 				return "0"
 			}
 			else{
-				return "2"
+				return "3"
 			}
 		})
 		.attr("fill",function(d){
@@ -58,8 +58,8 @@ function update(error, data) {
 
 
 
-	var width = 1150 - 60 - margin.right,
-		height = 570.74 - margin.top - margin.bottom;
+	var width = 1100 - 60 - margin.right,
+		height = 550.74 - margin.top - margin.bottom;
 
 	var svg = d3.select("#offCampus").append("svg")
 		.attr("width", width)
@@ -95,7 +95,7 @@ function update(error, data) {
 					return "0"
 				}
 				else{
-					return "2"
+					return "3"
 				}
 			})
 			.attr("fill",function(d){

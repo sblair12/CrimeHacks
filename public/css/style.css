@@ -22,8 +22,7 @@ h2 {
 /*************/
 
 .form{
-  margin:0;
-  width:20%;
+  display: inline-block;
 }
 
 .form-inline {
