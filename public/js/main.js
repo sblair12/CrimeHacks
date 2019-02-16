@@ -11,19 +11,30 @@ function update(error, data) {
 		height = 1111 - margin.top - margin.bottom;
 
 	var svg = d3.select("#offCampus").append("svg")
-		.attr("width", 1610)
-		.attr("height", 1111)
+		.attr("width", width)
+		.attr("height", height)
 		.attr("id","canvas");
+
+	var xScale = d3.scaleLinear()
+		.domain([-90.336088, -90.264236])
+		.range([0, width]);
+	var yScale = d3.scaleLinear()
+		.domain([38.628762, 38.667423])
+		.range([height, 0]);
+
+	console.log(xScale);
+	console.log(yScale(200));
+	console.log(xScale(200));
 
 	var svgSaver = svg.selectAll("circle")
 		.data(data);
 		svgSaver.enter()
 		.append("circle")
 			.attr("cx",function (d) {
-				return (d.lon+90.336017)*(15462.3393)
+				return xScale(d.lon);
 			})
 			.attr("cy",function(d){
-				return (38.667423-d.lat)*(41644.034)
+				return yScale(d.lat);
 			})
 			.attr("r",function(d){
 				if (d.type.includes("carjacking")){
