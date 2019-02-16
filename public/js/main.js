@@ -24,10 +24,12 @@ function update(error, data) {
 	svgSaver2.enter()
 		.append("circle")
 		.attr("cx",function (d) {
-			return xScale2(d.lon);
+			if (d.gotLocation) return xScale2(d.lon);
+			else return -1;
 		})
 		.attr("cy",function(d){
-			return yScale2(d.lat);
+			if (d.gotLocation) return yScale2(d.lat);
+			else return -1;
 		})
 		.attr("r",function(d){
 			if (d.type.includes("carjacking")){
@@ -82,10 +84,12 @@ function update(error, data) {
 		svgSaver.enter()
 		.append("circle")
 			.attr("cx",function (d) {
-				return xScale(d.lon);
+				if (d.gotLocation) return xScale(d.lon);
+				else return -1;
 			})
 			.attr("cy",function(d){
-				return yScale(d.lat);
+				if (d.gotLocation) return yScale(d.lat);
+				else return -1;
 			})
 			.attr("r",function(d){
 				if (d.type.includes("carjacking")){
@@ -111,7 +115,23 @@ function update(error, data) {
 			})
 			.on("click",function(d){
 				console.log(d.lat + ", " + d.lon)
-			})
+			});
+
+	var tip = d3.tip().attr('class', 'd3-tip').html(function(d) { return d.location; });
+	tip.direction('n');
+	tip.offset([-5, 0]);
+
+	if (status) {
+		svg.call(tip);
+		svg.selectAll("circle").on("mouseover", tip.show)
+			.on("mouseout", tip.hide);
+	}
+	else {
+		svg2.call(tip);
+		svg2.selectAll("circle").on("mouseover", tip.show)
+			.on("mouseout", tip.hide);
+	}
+
 
 }
 
