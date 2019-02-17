@@ -46,9 +46,10 @@ app.post('/submitForm', (req, res) => {
     type: req.body.type,
     description: req.body.description,
     lat: req.body.lat,
-    lng: req.body.lng,
+    lon: req.body.lng,
     gotLocation: false
   };
+  console.log(crimeData);
   Crime.create(crimeData, function(error, crime) {
     if (error) {
         console.log(error);

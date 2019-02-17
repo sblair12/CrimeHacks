@@ -1,7 +1,7 @@
 
 body {
   font-family: 'Lato', sans-serif;
-  background-color: #D0C6B2;
+  background-color: #829CD0;
 }
 
 h1 {
@@ -23,6 +23,7 @@ h2 {
 
 .form{
   display: inline-block;
+  padding-right: 5px;
 }
 
 .form-inline {
@@ -30,9 +31,13 @@ h2 {
 }
 
 .form-control {
-  background: #E2DDD1;
-  border: 1px solid #D49999;
+  background: #EBEBEB;
+  border: 1px solid #829CD0;
   width: 250px;
+}
+
+.form-group {
+  padding-right: 4px;
 }
 
 .form-group label {
@@ -58,40 +63,6 @@ h2 {
   margin-right: 5px;
 }
 
-
-
-/***************/
-/*  BAR CHART  */
-/***************/
-
-/*.bar {*/
-  /*fill: #8E7060;*/
-/*}*/
-
-/*.axis {*/
-  /*font: 10px sans-serif;*/
-  /*fill: #333;*/
-/*}*/
-
-/*.axis-title {*/
-  /*fill: #9C8B83;*/
-  /*font-size: 11px;*/
-/*}*/
-
-/*.axis path,*/
-/*.axis line {*/
-  /*fill: none;*/
-  /*stroke: #333;*/
-  /*shape-rendering: crispEdges;*/
-/*}*/
-
-/*.x-axis {*/
-  /*font-size: 12px;*/
-/*}*/
-
-/*.x-axis path {*/
-  /*display: none;*/
-/*}*/
 svg#canvas2{
   background-image: url(map.jpg);
 }
@@ -125,5 +96,15 @@ svg#canvas{
 }
 #carouselExampleIndicators {
   margin-top: 10px;
+}
+#main {
+  box-shadow: 10px 10px 25px 0px rgba(99,99,99,1);
+  background-color: white;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#locationField {
+  margin-bottom: 1rem;
 }
 

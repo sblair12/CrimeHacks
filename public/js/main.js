@@ -62,7 +62,7 @@ function update(data) {
 		.on("click",function(d){
 			console.log(d.lat + ", " + d.lon)
 		});
-	svgSaver2.exit().remove();
+	svgSaver2.exit().transition().delay(500).duration(500).remove();
 
 	svg2.transition().delay(1500).duration(1000).attr("opacity", 1);
 
@@ -95,7 +95,7 @@ function update(data) {
 				console.log(d.lat + ", " + d.lon)
 			});
 
-		svgSaver.exit().remove();
+		svgSaver.exit().transition().delay(500).duration(500).remove();
 
 	var tip = d3.tip().attr('class', 'd3-tip').html(function(d) { return `<div class="tip-title">${d.location}</div><div class="tip-desc">${d.type}</div>`; });
 	tip.direction('n');
@@ -116,30 +116,7 @@ function update(data) {
 		svg2.attr("opacity", 0.15);
 	}
 
-	d3.select("#ranking-type").on("change", function() {
-		var filter = d3.select("#ranking-type").node().value;
-		if (filter === "all") {
-			update(globalData);
-		}
-		else {
-			// var options = {
-			// 	shouldSort: true,
-			// 	threshold: 0.6,
-			// 	location: 0,
-			// 	distance: 100,
-			// 	maxPatternLength: 32,
-			// 	minMatchCharLength: 1,
-			// 	keys: [
-			// 		"type",
-			// 		"description"
-			// 	]
-			// };
-			// var fuse = new Fuse(globalData, options); // "list" is the item array
-			// var filtered = fuse.search(filter);
-			var filtered = globalData.filter((elem) => elem.type.toLowerCase().includes(filter.toLowerCase()) || elem.description.toLowerCase().includes(filter.toLowerCase()));
-			update(filtered);
-		}
-	});
+	d3.select("#ranking-type").on("change", filterMatch);
 }
 
 function spaceItems(data) {
@@ -196,17 +173,32 @@ function spaceItems(data) {
 	});
 }
 
-function keywordMatch(e) {
-	e.preventDefault();
+function filterMatch(e) {
+	if (e !== undefined) e.preventDefault();
 	var keyword = d3.select("#keywordSearch").node().value;
-	console.log(keyword);
-	if (keyword === "") {
+    var filter = d3.select("#ranking-type").node().value;
+	if (filter === "all" && keyword === "") {
 		update(globalData);
 	}
 	else {
-		var filtered = globalData.filter((elem) => elem.description.toLowerCase().includes(keyword.toLowerCase()));
+		var filtered = (keyword === "") ? globalData : globalData.filter((elem) => elem.description.toLowerCase().includes(keyword.toLowerCase()));
+        filtered = (filter === "all") ? filtered : filtered.filter((elem) => elem.type.toLowerCase().includes(filter.toLowerCase()) || elem.description.toLowerCase().includes(filter.toLowerCase()));
 		update(filtered);
 	}
+    // var options = {
+    // 	shouldSort: true,
+    // 	threshold: 0.6,
+    // 	location: 0,
+    // 	distance: 100,
+    // 	maxPatternLength: 32,
+    // 	minMatchCharLength: 1,
+    // 	keys: [
+    // 		"type",
+    // 		"description"
+    // 	]
+    // };
+    // var fuse = new Fuse(globalData, options); // "list" is the item array
+    // var filtered = fuse.search(filter);
 }
 
 function hider() {

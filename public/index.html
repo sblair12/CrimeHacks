@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Crime near WashU</title>
+	<title>CrimeMap</title>
 
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
@@ -14,7 +14,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<a class="navbar-brand" href="#">
+	<a class="navbar-brand" href="index.html">
 		<img src="washu.svg" width="30" height="30" class="d-inline-block align-top" alt="">
 		WUSTL CrimeMap
 	</a>
@@ -24,11 +24,11 @@
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
-			<li class="nav-item active">
-				<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-			</li>
+			<!--<li class="nav-item active">-->
+				<!--<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
+			<!--</li>-->
 			<li class="nav-item">
-				<a class="nav-link" href="#">Link</a>
+				<a class="nav-link" href="geocode.html">Submit Report</a>
 			</li>
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -63,7 +63,7 @@
 			</form>
 		</form>
 		<form class="form-inline my-2 my-lg-0">
-			<input id="keywordSearch" class="form-control mr-sm-2" type="search" placeholder="Keywords" aria-label="Search" onsubmit="keywordMatch(event)" onchange="keywordMatch(event)" onkeyup="keywordMatch(event)">
+			<input id="keywordSearch" class="form-control mr-sm-2" type="search" placeholder="Keywords" aria-label="Search" onsubmit="filterMatch(event)" onchange="filterMatch(event)" onkeyup="filterMatch(event)">
 		</form>
 	</div>
 </nav>
