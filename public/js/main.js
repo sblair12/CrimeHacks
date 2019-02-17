@@ -1,22 +1,35 @@
 d3.queue()
 	.defer(d3.json, "/data")
-	.await(update);
+	.await(getData);
+let globalData;
 let status = true;
 let holder = 0;
-var svg;
-var svg2;
+var margin = {top: 40, right: 10, bottom: 60, left: 10};
 
-function update(error, data) {
+var width = 1100 - 60 - margin.right,
+	height = 550.74 - margin.top - margin.bottom;
+var svg = d3.select("#offCampus").append("svg")
+	.attr("width", width)
+	.attr("height", height)
+	.attr("id","canvas");
+var width2 = 1100 - 60 - margin.right;
+var height2 = 860 - margin.top - margin.bottom;
+var svg2 = d3.select("#onCampus").append("svg")
+	.attr("width", width2)
+	.attr("height", height2)
+	.attr("id","canvas2");
+
+var crimeStrings = ["burglar", "larceny", "vehicle", "sexual", "sexual", "accident"];
+
+function getData (error, data) {
+	globalData = data;
+	update(data);
+}
+
+function update(data) {
 	console.log(data);
-	var margin = {top: 40, right: 10, bottom: 60, left: 10};
 	spaceItems(data);
 
-	var width2 = 1100 - 60 - margin.right;
-	var height2 = 860 - margin.top - margin.bottom;
-	svg2 = d3.select("#onCampus").append("svg")
-		.attr("width", width2)
-		.attr("height", height2)
-		.attr("id","canvas2");
 	var xScale2 = d3.scaleLinear()
 		.domain([-90.316390,-90.300687])
 		.range([0,width2]);
@@ -27,6 +40,7 @@ function update(error, data) {
 		.data(data);
 	svgSaver2.enter()
 		.append("circle")
+		.merge(svgSaver2)
 		.attr("cx",function (d) {
 			if (d.gotLocation) {
 				return xScale2(d.lon);
@@ -62,17 +76,7 @@ function update(error, data) {
 		.on("click",function(d){
 			console.log(d.lat + ", " + d.lon)
 		});
-
-
-
-
-	var width = 1100 - 60 - margin.right,
-		height = 550.74 - margin.top - margin.bottom;
-
-	svg = d3.select("#offCampus").append("svg")
-		.attr("width", width)
-		.attr("height", height)
-		.attr("id","canvas");
+	svgSaver2.exit().remove();
 
 	var xScale = d3.scaleLinear()
 		.domain([-90.328869, -90.274651])
@@ -81,14 +85,12 @@ function update(error, data) {
 		.domain([38.642568,38.661009])
 		.range([height, 0]);
 
-	console.log(xScale);
-	console.log(yScale(200));
-	console.log(xScale(200));
-
 	var svgSaver = svg.selectAll("circle")
 		.data(data);
 		svgSaver.enter()
 		.append("circle")
+			.merge(svgSaver)
+
 			.attr("cx",function (d) {
 				if (d.gotLocation) return xScale(d.lon);
 				else return -1;
@@ -123,6 +125,8 @@ function update(error, data) {
 				console.log(d.lat + ", " + d.lon)
 			});
 
+		svgSaver.exit().remove();
+
 		var crimeTypes = data.map(elem => elem.type);
 		console.log(new Set(crimeTypes));
 
@@ -140,69 +144,82 @@ function update(error, data) {
 
 	d3.select("#ranking-type").on("change", function() {
 		var filter = d3.select("#ranking-type").node().value;
-		var options = {
-			shouldSort: true,
-			threshold: 0.6,
-			location: 0,
-			distance: 100,
-			maxPatternLength: 32,
-			minMatchCharLength: 1,
-			keys: [
-				"type",
-				"description"
-			]
-		};
-		var fuse = new Fuse(data, options); // "list" is the item array
-		var filtered = fuse.search(filter);
-		//var filtered = data.filter((elem) => elem.type.includes(filter.toLowerCase()) || elem.description.includes(filter.toLowerCase()));
-		console.log(filtered);
+		if (filter === "all") {
+			update(globalData);
+		}
+		else {
+			// var options = {
+			// 	shouldSort: true,
+			// 	threshold: 0.6,
+			// 	location: 0,
+			// 	distance: 100,
+			// 	maxPatternLength: 32,
+			// 	minMatchCharLength: 1,
+			// 	keys: [
+			// 		"type",
+			// 		"description"
+			// 	]
+			// };
+			// var fuse = new Fuse(globalData, options); // "list" is the item array
+			// var filtered = fuse.search(filter);
+			var filtered = globalData.filter((elem) => elem.type.toLowerCase().includes(filter.toLowerCase()) || elem.description.toLowerCase().includes(filter.toLowerCase()));
+			console.log("filter: ");
+			console.log(filtered);
+			update(filtered);
+		}
 	});
 }
 
 function spaceItems(data) {
 	var set = new Set();
-	var alternate = 0;
+
+	var offset = 0.000025;
+	//var alternate = 0;
 	data.forEach((elem, index) => {
-		if (set.has(elem.lon*elem.lat)) {
-			while(true) {
-				console.log(index);
-				switch (alternate) {
-					case 0:
-						elem.lon++;
-						break;
-					case 1:
-						elem.lat++;
-						break;
-					case 2:
-						elem.lon--;
-						break;
-					case 3:
-						elem.lat--;
-						break;
-					case 4:
-						elem.lon++;
-						elem.lat++;
-						break;
-					case 5:
-						elem.lon--;
-						elem.lat--;
-						break;
-					case 6:
-						elem.lon++;
-						elem.lat--;
-						break;
-					case 7:
-						elem.lon--;
-						elem.lat++;
-						break;
+		if (elem.gotLocation) {
+			if (set.has(elem.lon*elem.lat)) {
+				while(true) {
+					//console.log(index);
+					var random = Math.floor(Math.random() * 8);
+					//console.log(random);
+					switch (random) {
+						case 0:
+							elem.lon += offset;
+							break;
+						case 1:
+							elem.lat += offset;
+							break;
+						case 2:
+							elem.lon -= offset;
+							break;
+						case 3:
+							elem.lat -= offset;
+							break;
+						case 4:
+							elem.lon += offset;
+							elem.lat += offset;
+							break;
+						case 5:
+							elem.lon -= offset;
+							elem.lat -= offset;
+							break;
+						case 6:
+							elem.lon += offset;
+							elem.lat -= offset;
+							break;
+						case 7:
+							elem.lon -= offset;
+							elem.lat += offset;
+							break;
+					}
+					if (!set.has(elem.lon*elem.lat)) break;
 				}
-				if (!set.has(elem.lon*elem.lat)) break;
+				//alternate = (alternate + 1) % 8;
+				set.add(elem.lon*elem.lat);
 			}
-			alternate = (alternate + 1) % 8;
-			set.add(elem.lon*elem.lat);
-		}
-		else {
-			set.add(elem.lon*elem.lat);
+			else {
+				set.add(elem.lon*elem.lat);
+			}
 		}
 	});
 }
