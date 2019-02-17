@@ -196,8 +196,17 @@ function spaceItems(data) {
 	});
 }
 
-function keywordMatch() {
-	var filter = d3.select("#keyword").node().value;
+function keywordMatch(e) {
+	e.preventDefault();
+	var keyword = d3.select("#keywordSearch").node().value;
+	console.log(keyword);
+	if (keyword === "") {
+		update(globalData);
+	}
+	else {
+		var filtered = globalData.filter((elem) => elem.description.toLowerCase().includes(keyword.toLowerCase()));
+		update(filtered);
+	}
 }
 
 function hider() {

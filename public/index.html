@@ -63,7 +63,7 @@
 			</form>
 		</form>
 		<form class="form-inline my-2 my-lg-0">
-			<input id="keywordSearch" class="form-control mr-sm-2" type="search" placeholder="Keywords" aria-label="Search" onchange="keywordMatch">
+			<input id="keywordSearch" class="form-control mr-sm-2" type="search" placeholder="Keywords" aria-label="Search" onsubmit="keywordMatch(event)" onchange="keywordMatch(event)" onkeyup="keywordMatch(event)">
 		</form>
 	</div>
 </nav>
