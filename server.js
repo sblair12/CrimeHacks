@@ -38,9 +38,34 @@ app.get('/data', (req, res) => {
 
 });
 
-app.get('/submitForm', (req, res) => {
-  console.log(req);
-  console.log(res);
+app.post('/submitForm', (req, res) => {
+  console.log("body: " + JSON.stringify(req.body));
+  var crimeData = {
+    date: req.body.date,
+    time: req.body.time,
+    type: req.body.type,
+    description: req.body.description,
+    lat: req.body.lat,
+    lng: req.body.lng,
+    gotLocation: false
+  };
+  Crime.create(crimeData, function(error, crime) {
+    if (error) {
+        console.log(error);
+        var responseData = {
+          success: 'false',
+        }
+        res.send(responseData);
+    } else {
+      console.log("Successfuly created crime")
+      var responseData = {
+        success: 'true',
+      }
+      res.send(responseData);
+    }
+
+  });
+
 
 });
 
