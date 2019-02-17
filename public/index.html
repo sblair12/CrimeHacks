@@ -20,11 +20,12 @@
 				<label for="ranking-type" >Group by</label>
 				<select class="form-control" id="ranking-type" onchange="holding()">
 					<option value= "all" >All</option>
-					<option value= "burglar" >Burglary</option>
-					<option value= "larceny" >Theft</option>
-					<option value= "vehicle" >Carjacking</option>
+					<option value= "burglary" >Burglary</option>
+					<option value= "theft" >Theft</option>
+					<option value= "assault" >Assault</option>
+					<option value= "carjacking" >Carjacking</option>
 					<option value= "sexual" >Sexual Violence</option>
-					<option value= "accident" >Non-Violent</option>
+					<option value= "nonviolent" >Non-Violent</option>
 					Non-Criminal
 				</select>
 			</div>
@@ -48,9 +49,6 @@
 			<span class="sr-only">Next</span>
 		</a>
 	</div>
-	<div id="campus">
-	</div>
-
 	<!-- Load JS libraries: jQuery, bootstrap, D3 -->
 	<script src="js/jquery.min.js"></script>
 	<script src="js/popper.min.js"></script>
