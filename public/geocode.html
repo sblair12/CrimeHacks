@@ -125,16 +125,17 @@
     }
 
     function submitter(){
+	var shortLoc = document.getElementById("autocomplete").value; 
+	shortLoc = shortLoc.substring(0, shortLoc.indexOf(","));
         let data = {
             date: document.getElementById("inputDate").value,
             time: document.getElementById("inputTime").value,
             type: document.getElementById("inputType").value,
             description: document.getElementById("inputDescription").value,
-            location: document.getElementById("autocomplete").value,
+            loc: shortLoc,
             lng: lng,
             lat: lat
         };
-
         fetch('/submitForm', {
             headers: {
                 'Content-Type': 'application/json',
