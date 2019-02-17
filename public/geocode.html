@@ -39,6 +39,9 @@
             <li class="nav-item active">
                 <a class="nav-link" href="geocode.html">Submit Report<span class="sr-only">(current)</span></a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="api.html">API</a>
+      			</li>
         </ul>
     </div>
 </nav>
@@ -125,16 +128,17 @@
     }
 
     function submitter(){
+      	var shortLoc = document.getElementById("autocomplete").value;
+      	shortLoc = shortLoc.substring(0, shortLoc.indexOf(","));
         let data = {
             date: document.getElementById("inputDate").value,
             time: document.getElementById("inputTime").value,
             type: document.getElementById("inputType").value,
             description: document.getElementById("inputDescription").value,
-            location: document.getElementById("autocomplete").value,
+            loc: shortLoc,
             lng: lng,
             lat: lat
         };
-
         fetch('/submitForm', {
             headers: {
                 'Content-Type': 'application/json',

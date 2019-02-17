@@ -148,7 +148,7 @@ app.post('/submitForm', (req, res) => {
     description: req.body.description,
     lat: req.body.lat,
     lon: req.body.lng,
-    location: req.body.location,
+    location: req.body.loc,
     gotLocation: true
   };
   Crime.create(crimeData, function(error, crime) {
