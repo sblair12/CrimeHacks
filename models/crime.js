@@ -21,7 +21,10 @@ const CrimeSchema = new mongoose.Schema({
     type: String,
     default: ''
   },
-  category: String,
+  category: {
+    type: String,
+    default: ''
+  },
   lat: Number,
   lon: Number,
   gotLocation: Boolean
