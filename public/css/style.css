@@ -123,4 +123,7 @@ svg#canvas{
   font-size: 12px;
   font-weight: normal;
 }
+#carouselExampleIndicators {
+  margin-top: 10px;
+}
 

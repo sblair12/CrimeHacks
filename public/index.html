@@ -13,23 +13,62 @@
 	<link href='https://fonts.googleapis.com/css?family=Lato:400,300,400italic,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<div class="container">
-		<h1>Visualization for Crimes near WashU</h1>
-		<form class="form">
-			<div class="form-group">
-				<label for="ranking-type" >Group by</label>
-				<select class="form-control" id="ranking-type" onchange="holding()">
-					<option value= "all" >All</option>
-					<option value= "burglary" >Burglary</option>
-					<option value= "theft" >Theft</option>
-					<option value= "assault" >Assault</option>
-					<option value= "carjacking" >Carjacking</option>
-					<option value= "sexual" >Sexual Violence</option>
-					<option value= "nonviolent" >Non-Violent</option>
-					Non-Criminal
-				</select>
-			</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a class="navbar-brand" href="#">
+		<img src="washu.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+		WUSTL CrimeMap
+	</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+				<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Link</a>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Dropdown
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="#">Action</a>
+					<a class="dropdown-item" href="#">Another action</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">Something else here</a>
+				</div>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+			</li>
+		</ul>
+		<form class="form-inline my-2 my-lg-0">
+			<form class="form">
+				<div class="form-group">
+					<label for="ranking-type" >Group by</label>
+					<select class="form-control" id="ranking-type" onchange="holding()">
+						<option value= "all" >All</option>
+						<option value= "burglary" >Burglary</option>
+						<option value= "theft" >Theft</option>
+						<option value= "assault" >Assault</option>
+						<option value= "carjacking" >Carjacking</option>
+						<option value= "sexual" >Sexual Violence</option>
+						<option value= "nonviolent" >Non-Violent</option>
+						Non-Criminal
+					</select>
+				</div>
+			</form>
 		</form>
+		<form class="form-inline my-2 my-lg-0">
+			<input id="keywordSearch" class="form-control mr-sm-2" type="search" placeholder="Keywords" aria-label="Search" onchange="keywordMatch">
+		</form>
+	</div>
+</nav>
+	<div class="container">
+
 	</div>
 	<div id="carouselExampleIndicators" class="carousel slide" data-ride="false" data-interval="false" data-wrap="false">
 		<div class="carousel-inner">
