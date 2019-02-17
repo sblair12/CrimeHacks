@@ -27,17 +27,22 @@ const Crime = require('./models/crime.js');
 
 //ENDPOINTS
 app.get('/data', (req, res) => {
-	
-	Crime.find({}, 
+
+	Crime.find({},
 	(err, crimes) => {
       if (err) {
         res.send(err);
       }
 	  res.json(crimes);
     });
-	
+
 });
 
+app.get('/submitForm', (req, res) => {
+  console.log(req);
+  console.log(res);
+
+});
 
 app.use(express.static(path.join(__dirname, "public")));
 
