@@ -19,7 +19,10 @@ var svg2 = d3.select("#onCampus").append("svg")
 	.attr("height", height2)
 	.attr("id","canvas2");
 
-var crimeStrings = ["burglar", "larceny", "vehicle", "sexual", "sexual", "accident"];
+let crimeStrings = ["burglary", "theft", "assault", "carjacking", "sexual", "nonviolent"];
+//let crimeColors = ["black", "orange", "red", "yellow", ""]
+var colorScale = d3.scaleOrdinal(d3.schemeCategory10)
+	.domain(crimeStrings);
 
 function getData (error, data) {
 	globalData = data;
@@ -51,27 +54,9 @@ function update(data) {
 			if (d.gotLocation) return yScale2(d.lat);
 			else return -1;
 		})
-		.attr("r",function(d){
-			if (d.type.includes("carjacking")){
-				return "7"
-			}
-			else if(d.description.includes("*test*")){
-				return "0"
-			}
-			else{
-				return "3"
-			}
-		})
+		.attr("r", 4)
 		.attr("fill",function(d){
-			if(d.description.includes("not injured")){
-				return "green"
-			}
-			// else if(d.description.includes("*test*")){
-			// 	return "blue"
-			// }
-			else{
-				return "red"
-			}
+			return colorScale(d.category);
 		})
 		.on("click",function(d){
 			console.log(d.lat + ", " + d.lon)
@@ -99,36 +84,15 @@ function update(data) {
 				if (d.gotLocation) return yScale(d.lat);
 				else return -1;
 			})
-			.attr("r",function(d){
-				if (d.type.includes("carjacking")){
-					return "7"
-				}
-				else if(d.description.includes("*test*")){
-					return "0"
-				}
-				else{
-					return "3"
-				}
-			})
+			.attr("r",4)
 			.attr("fill",function(d){
-				if(d.description.includes("not injured")){
-					return "green"
-				}
-				// else if(d.description.includes("*test*")){
-				// 	return "blue"
-				// }
-				else{
-					return "red"
-				}
+				return colorScale(d.category);
 			})
 			.on("click",function(d){
 				console.log(d.lat + ", " + d.lon)
 			});
 
 		svgSaver.exit().remove();
-
-		var crimeTypes = data.map(elem => elem.type);
-		console.log(new Set(crimeTypes));
 
 	var tip = d3.tip().attr('class', 'd3-tip').html(function(d) { return `<div class="tip-title">${d.location}</div><div class="tip-desc">${d.type}</div>`; });
 	tip.direction('n');
@@ -163,8 +127,6 @@ function update(data) {
 			// var fuse = new Fuse(globalData, options); // "list" is the item array
 			// var filtered = fuse.search(filter);
 			var filtered = globalData.filter((elem) => elem.type.toLowerCase().includes(filter.toLowerCase()) || elem.description.toLowerCase().includes(filter.toLowerCase()));
-			console.log("filter: ");
-			console.log(filtered);
 			update(filtered);
 		}
 	});
@@ -225,7 +187,6 @@ function spaceItems(data) {
 }
 
 function hider() {
-	console.log(status);
 	if (status == true){
 		let prevClass = d3.select("#prev").attr("class");
 		let nextClass = d3.select("#next").attr("class");
@@ -239,24 +200,6 @@ function hider() {
 		d3.select("#prev").attr("class", prevClass + " hidden");
 	}
 	status = !status;
-}
-
-function holding(){
-	if (document.getElementById("#ranking-type") == "0"){
-		console.log("all");
-	}
-	else if(document.getElementById("#ranking-type") == "1"){
-		console.log("1");
-	}
-	else if(document.getElementById("#ranking-type") == "2"){
-		console.log("2");
-	}
-	else if(document.getElementById("#ranking-type") == "3"){
-		console.log("3");
-	}
-	else if(document.getElementById("#ranking-type") == "4"){
-		console.log("4");
-	}
 }
 
 
