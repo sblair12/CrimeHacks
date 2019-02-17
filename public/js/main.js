@@ -17,7 +17,8 @@ var height2 = 860 - margin.top - margin.bottom;
 var svg2 = d3.select("#onCampus").append("svg")
 	.attr("width", width2)
 	.attr("height", height2)
-	.attr("id","canvas2");
+	.attr("id","canvas2")
+	.attr("opacity", 0.15);
 
 let crimeStrings = ["burglary", "theft", "assault", "carjacking", "sexual", "nonviolent"];
 //let crimeColors = ["black", "orange", "red", "yellow", ""]
@@ -63,6 +64,8 @@ function update(data) {
 		});
 	svgSaver2.exit().remove();
 
+	svg2.transition().delay(1500).duration(1000).attr("opacity", 1);
+
 	var xScale = d3.scaleLinear()
 		.domain([-90.328869, -90.274651])
 		.range([0, width]);
@@ -105,6 +108,8 @@ function update(data) {
 	svg2.call(tip);
 	svg2.selectAll("circle").on("mouseover", tip.show)
 		.on("mouseout", tip.hide);
+
+	svg.attr("opacity", 0.15);
 
 	d3.select("#ranking-type").on("change", function() {
 		var filter = d3.select("#ranking-type").node().value;
@@ -188,16 +193,20 @@ function spaceItems(data) {
 
 function hider() {
 	if (status == true){
+		svg2.transition().duration(1000).attr("opacity", 0.15);
 		let prevClass = d3.select("#prev").attr("class");
 		let nextClass = d3.select("#next").attr("class");
 		d3.select("#prev").attr("class", prevClass.replace("hidden", ""));
 		d3.select("#next").attr("class", nextClass + " hidden");
+		svg.transition().delay(650).duration(1000).attr("opacity", 1);
 	}
 	else{
+		svg.transition().duration(1000).attr("opacity", 0.15);
 		let prevClass = d3.select("#prev").attr("class");
 		let nextClass = d3.select("#next").attr("class");
 		d3.select("#next").attr("class", nextClass.replace("hidden", ""));
 		d3.select("#prev").attr("class", prevClass + " hidden");
+		svg2.transition().delay(650).duration(1000).attr("opacity", 1);
 	}
 	status = !status;
 }
