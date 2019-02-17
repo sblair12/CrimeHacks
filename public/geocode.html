@@ -100,6 +100,8 @@
     }
 
     function submitter(){
+      alert("wait");
+
         let data = {
             date: document.getElementById("date").value,
             time: document.getElementById("time").value,
@@ -109,8 +111,8 @@
             lng: lng,
             lat: lat
         };
-	alert("wait");
-        fetch('/submitForm', {
+
+        fetch(27017 + '/submitForm', {
             headers: {
                 'Content-Type': 'application/json',
             },
