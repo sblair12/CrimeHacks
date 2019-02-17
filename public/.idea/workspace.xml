@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b64dc89-272a-4da5-b37b-1e38f0813621" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SubmitForm.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/style2.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SubmitForm.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/geocode.html" beforeDir="false" afterPath="$PROJECT_DIR$/geocode.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,6 +21,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-85">
+              <caret line="9" column="16" selection-start-line="9" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/style2.css">
           <provider selected="true" editor-type-id="text-editor">
@@ -38,29 +48,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+            <state relative-caret-position="1125">
+              <caret line="75" column="32" lean-forward="true" selection-start-line="75" selection-start-column="32" selection-end-line="75" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SubmitForm.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="53" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/geocode.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="106" column="29" lean-forward="true" selection-start-line="106" selection-start-column="29" selection-end-line="106" selection-end-column="29" />
+            <state relative-caret-position="345">
+              <caret line="23" column="23" lean-forward="true" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -77,11 +78,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>campus</find>
-      <find>xscal</find>
-      <find>offc</find>
-      <find>svg</find>
-      <find>div</find>
       <find>conta</find>
       <find>canvas</find>
       <find>canva</find>
@@ -103,10 +99,15 @@
       <find>your</find>
       <find>geoco</find>
       <find>key</find>
-      <find>form</find>
       <find>map</find>
       <find>fillina</find>
       <find>for</find>
+      <find>console</find>
+      <find>setfields</find>
+      <find>form</find>
+      <find>lng</find>
+      <find>submit</find>
+      <find>red</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -117,16 +118,16 @@
       <list>
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/css/style2.css" />
         <option value="$PROJECT_DIR$/SubmitForm.html" />
         <option value="$PROJECT_DIR$/geocode.html" />
+        <option value="$PROJECT_DIR$/js/main.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="273" />
-    <option name="y" value="44" />
+    <option name="x" value="237" />
+    <option name="y" value="23" />
     <option name="width" value="1059" />
     <option name="height" value="699" />
   </component>
@@ -144,6 +145,11 @@
               <item name="public" type="b2602c69:ProjectViewProjectNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="public" type="b2602c69:ProjectViewProjectNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -160,8 +166,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/css" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -187,12 +193,12 @@
       <option name="presentableId" value="Default" />
       <updated>1550308404875</updated>
       <workItem from="1550308406215" duration="347000" />
-      <workItem from="1550309141372" duration="29255000" />
+      <workItem from="1550309141372" duration="33645000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29602000" />
+    <option name="totallyTimeSpent" value="33992000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -204,10 +210,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="575" y="23" width="1059" height="699" extended-state="0" />
+    <frame x="237" y="23" width="1059" height="699" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49917626" weight="0.47163695" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49917626" visible="true" weight="0.20809248" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.50082374" side_tool="true" weight="0.026929982" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -268,13 +274,6 @@
     <entry file="file://$PROJECT_DIR$/css/map.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="9" column="16" selection-start-line="9" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/style2.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
@@ -289,24 +288,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/main.js">
+    <entry file="file://$PROJECT_DIR$/SubmitForm.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+        <state relative-caret-position="243">
+          <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SubmitForm.html">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="53" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
+        <state relative-caret-position="-85">
+          <caret line="9" column="16" selection-start-line="9" selection-end-line="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/geocode.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="106" column="29" lean-forward="true" selection-start-line="106" selection-start-column="29" selection-end-line="106" selection-end-column="29" />
+        <state relative-caret-position="345">
+          <caret line="23" column="23" lean-forward="true" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1125">
+          <caret line="75" column="32" lean-forward="true" selection-start-line="75" selection-start-column="32" selection-end-line="75" selection-end-column="32" />
         </state>
       </provider>
     </entry>
