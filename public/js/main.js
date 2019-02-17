@@ -3,13 +3,17 @@ d3.queue()
 	.await(update);
 let status = true;
 let holder = 0;
+var svg;
+var svg2;
+
 function update(error, data) {
 	console.log(data);
 	var margin = {top: 40, right: 10, bottom: 60, left: 10};
+	spaceItems(data);
 
 	var width2 = 1100 - 60 - margin.right;
 	var height2 = 860 - margin.top - margin.bottom;
-	var svg2 = d3.select("#onCampus").append("svg")
+	svg2 = d3.select("#onCampus").append("svg")
 		.attr("width", width2)
 		.attr("height", height2)
 		.attr("id","canvas2");
@@ -24,7 +28,9 @@ function update(error, data) {
 	svgSaver2.enter()
 		.append("circle")
 		.attr("cx",function (d) {
-			if (d.gotLocation) return xScale2(d.lon);
+			if (d.gotLocation) {
+				return xScale2(d.lon);
+			}
 			else return -1;
 		})
 		.attr("cy",function(d){
@@ -63,7 +69,7 @@ function update(error, data) {
 	var width = 1100 - 60 - margin.right,
 		height = 550.74 - margin.top - margin.bottom;
 
-	var svg = d3.select("#offCampus").append("svg")
+	svg = d3.select("#offCampus").append("svg")
 		.attr("width", width)
 		.attr("height", height)
 		.attr("id","canvas");
@@ -117,32 +123,103 @@ function update(error, data) {
 				console.log(d.lat + ", " + d.lon)
 			});
 
-	var tip = d3.tip().attr('class', 'd3-tip').html(function(d) { return d.location; });
+		var crimeTypes = data.map(elem => elem.type);
+		console.log(new Set(crimeTypes));
+
+	var tip = d3.tip().attr('class', 'd3-tip').html(function(d) { return `<div class="tip-title">${d.location}</div><div class="tip-desc">${d.type}</div>`; });
 	tip.direction('n');
 	tip.offset([-5, 0]);
 
-	if (status) {
-		svg.call(tip);
-		svg.selectAll("circle").on("mouseover", tip.show)
-			.on("mouseout", tip.hide);
-	}
-	else {
-		svg2.call(tip);
-		svg2.selectAll("circle").on("mouseover", tip.show)
-			.on("mouseout", tip.hide);
-	}
+	svg.call(tip);
+	svg.selectAll("circle").on("mouseover", tip.show)
+		.on("mouseout", tip.hide);
 
+	svg2.call(tip);
+	svg2.selectAll("circle").on("mouseover", tip.show)
+		.on("mouseout", tip.hide);
 
+	d3.select("#ranking-type").on("change", function() {
+		var filter = d3.select("#ranking-type").node().value;
+		var options = {
+			shouldSort: true,
+			threshold: 0.6,
+			location: 0,
+			distance: 100,
+			maxPatternLength: 32,
+			minMatchCharLength: 1,
+			keys: [
+				"type",
+				"description"
+			]
+		};
+		var fuse = new Fuse(data, options); // "list" is the item array
+		var filtered = fuse.search(filter);
+		//var filtered = data.filter((elem) => elem.type.includes(filter.toLowerCase()) || elem.description.includes(filter.toLowerCase()));
+		console.log(filtered);
+	});
+}
+
+function spaceItems(data) {
+	var set = new Set();
+	var alternate = 0;
+	data.forEach((elem, index) => {
+		if (set.has(elem.lon*elem.lat)) {
+			while(true) {
+				console.log(index);
+				switch (alternate) {
+					case 0:
+						elem.lon++;
+						break;
+					case 1:
+						elem.lat++;
+						break;
+					case 2:
+						elem.lon--;
+						break;
+					case 3:
+						elem.lat--;
+						break;
+					case 4:
+						elem.lon++;
+						elem.lat++;
+						break;
+					case 5:
+						elem.lon--;
+						elem.lat--;
+						break;
+					case 6:
+						elem.lon++;
+						elem.lat--;
+						break;
+					case 7:
+						elem.lon--;
+						elem.lat++;
+						break;
+				}
+				if (!set.has(elem.lon*elem.lat)) break;
+			}
+			alternate = (alternate + 1) % 8;
+			set.add(elem.lon*elem.lat);
+		}
+		else {
+			set.add(elem.lon*elem.lat);
+		}
+	});
 }
 
 function hider() {
+	console.log(status);
 	if (status == true){
-		d3.select("#onCampus").attr("class","show");
-		d3.select("#offCampus").attr("class","hidden");
+		let prevClass = d3.select("#prev").attr("class");
+		let nextClass = d3.select("#next").attr("class");
+		d3.select("#prev").attr("class", prevClass.replace("hidden", ""));
+		d3.select("#next").attr("class", nextClass + " hidden");
 	}
 	else{
-		d3.select("#onCampus").attr("class","hidden");
-		d3.select("#offCampus").attr("class","show");
+		let prevClass = d3.select("#prev").attr("class");
+		let nextClass = d3.select("#next").attr("class");
+		d3.select("#next").attr("class", nextClass.replace("hidden", ""));
+		d3.select("#prev").attr("class", prevClass + " hidden");
 	}
 	status = !status;
 }

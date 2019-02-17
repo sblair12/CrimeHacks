@@ -20,18 +20,35 @@
 				<label for="ranking-type" >Group by</label>
 				<select class="form-control" id="ranking-type" onchange="holding()">
 					<option value= "0" >All</option>
-					<option value= "1" >Burglaries</option>
-					<option value= "2" >Robberies</option>
-					<option value= "3" >Carjackings</option>
-					<option value= "4" >Sexual Misconduct</option>
+					<option value= "burglary" >Burglary</option>
+					<option value= "theft" >Theft</option>
+					<option value= "vehicle" >Carjacking</option>
+					<option value= "sexual assault" >Sexual Violence</option>
+					<option value= "accidental" >Non-Violent</option>
+					Non-Criminal
 				</select>
 			</div>
 		</form>
-		<button id = "bttn" onclick="hider()">Click to show </button>
+	</div>
+	<div id="carouselExampleIndicators" class="carousel slide" data-ride="false" data-interval="false" data-wrap="false">
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<div id="onCampus"></div>
+			</div>
+			<div class="carousel-item">
+				<div id="offCampus"></div>
+			</div>
+		</div>
+		<a id="prev" class="carousel-control-prev hidden" href="#carouselExampleIndicators" role="button" data-slide="prev" onclick="hider()">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a id="next" class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next" onclick="hider()">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
 	</div>
 	<div id="campus">
-		<div id="onCampus" class="hidden"></div>
-		<div id="offCampus" class ="show"></div>
 	</div>
 
 	<!-- Load JS libraries: jQuery, bootstrap, D3 -->
@@ -40,6 +57,7 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/d3.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.2/fuse.min.js"></script>
 
 	<!-- Your implementation -->
 	<script src="js/main.js"></script>
