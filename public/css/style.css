@@ -111,10 +111,16 @@ svg#canvas{
 }
 #offCampus{
   margin: auto;
-  width: 85%
+  width: 1030px;
 }
 #onCampus{
-  margin:auto;
-  width: 85%;
+  margin: auto;
+  width: 1030px;
+}
+.tip-desc {
+  color: lightgray;
+  line-height: 8px;
+  font-size: 12px;
+  font-weight: normal;
 }
 

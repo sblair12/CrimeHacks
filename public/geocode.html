@@ -9,57 +9,58 @@
             height: 100%;
             margin: 0;
             padding: 0;
+            background-color: #D5EDFF;
         }
     </style>
     <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
     <style>
-        /*#locationField, #controls {*/
-            /*position: relative;*/
-            /*width: 480px;*/
-        /*}*/
-        #autocomplete {
-            /*position: absolute;*/
-            /*top: 0px;*/
-            /*left: 0px;*/
-            width: 99%;
+        h1{
+            color:black;
         }
-        /*#address td {*/
-            /*font-size: 10pt;*/
-        /*}*/
-        /*#locationField {*/
-            /*height: 20px;*/
-            /*margin-bottom: 2px;*/
-        /*}*/
+        h2{
+            color:black;
+            line-height:70%;
+        }
+        #autocomplete {
+            width: 25%;
+        }
+        #main{
+            padding-left: 15px;
+        }
     </style>
 </head>
 
 <body>
+<div id = "main">
 <h1>Crime Report Form</h1>
-
-    Date: <br>
-    <input type="date" required/>
+<form onsubmit="submitter()">
+  <h2>Date: </h2>  <br>
+    <input id = "date" type="date" required/>
     <br>
-    Time:<br>
-    <input type="time" required/>
+    <h2>Time:</h2><br>
+    <input id = "time" type="time" required/>
     <br>
-    Type:<br>
-    <input type ="text" name = "typeofcrime" required/>
+    <h2>Type:</h2><br>
+    <input id = "type" type ="text" name = "typeofcrime" required/>
     <br>
-    Description:<br>
-    <input type="text" name = "description" required/>
+    <h2>Description:</h2><br>
+    <input id = "description" type="text" name = "description" required/>
     <br>
-    Location: <br>
-
-    <div id="locationField">
+    <h2>Location:</h2> <br>
+    <div id="locationField" class = "formComplete">
         <input id="autocomplete"
                placeholder="Enter your address"
                onFocus="geolocate()"
                type="text"/>
     </div>
-    <button type = "button" onclick="submitter()">Submit</button>
-
-<script>
+    <br><br>
+    <input type="submit" value = "Submit">
+</form>
+</div>
+<script type="text/javascript">
     var placeSearch, autocomplete;
+    var lng;
+    var lat;
 
     var componentForm = {
         street_number: 'short_name',
@@ -80,8 +81,8 @@
     function fillInAddress() {
         var place = autocomplete.getPlace();
         console.log(place)
-        var lng = place.geometry.viewport.ga.j;
-        var lat = place.geometry.viewport.ma.j;
+        lng = place.geometry.viewport.ga.j;
+        lat = place.geometry.viewport.ma.j;
 
     }
     function geolocate() {
@@ -99,7 +100,27 @@
     }
 
     function submitter(){
-        console.log("ASDF?")
+        let data = {
+            date: document.getElementById("date").value,
+            time: document.getElementById("time").value,
+            type: document.getElementById("type").value,
+            description: document.getElementById("description").value,
+            location: document.getElementById("location").value,
+            lng: lng,
+            lat: lat
+        };
+
+        fetch('/submitForm', {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            credentials: "same-origin",
+            method: 'POST',
+            body: JSON.stringify(data)
+        }).then((res) => res.json().then(response => {
+            alert(response.success);
+        })).catch((err)=> alert(err));
+
     }
 
 </script>
