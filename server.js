@@ -12,11 +12,11 @@ const fetch = require('node-fetch');
 var dateFormat = require('dateformat');
 //=========================//
 
-const port = process.env.PORT || 5000;
-app.use(bodyParser.json())
+const port = process.env.PORT || 3000;
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
-}))
+}));
 
 mongoose.connect(url);
 mongoose.Promise = global.Promise;
