@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit Form</title>
+    <link rel="stylesheet" href="css/style2.css">
+
+</head>
+<body>
+    <h1>Crime Submitter</h1>
+    <form action="/action_page.php">
+        Date:<br>
+        <input type="date" name="dateOfCrime">
+        <br>
+        <br><br>Time:<br>
+        <input type="time">
+        <br>
+        <br><br>Location: <br>
+        <input type="text" name="firstname" value="Mickey">
+        <br>
+        <br><br>
+        <div class="dropdown">
+            <button class="dropbtn">Dropdown</button>
+            <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </div>
+        <br>
+
+        <input type="text" name = "Description" value = "*Description*"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+</body>
+</html>
