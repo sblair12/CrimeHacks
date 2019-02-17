@@ -109,7 +109,12 @@ function update(data) {
 	svg2.selectAll("circle").on("mouseover", tip.show)
 		.on("mouseout", tip.hide);
 
-	svg.attr("opacity", 0.15);
+	if (status) {
+		svg.attr("opacity", 0.15);
+	}
+	else {
+		svg2.attr("opacity", 0.15);
+	}
 
 	d3.select("#ranking-type").on("change", function() {
 		var filter = d3.select("#ranking-type").node().value;
@@ -189,6 +194,10 @@ function spaceItems(data) {
 			}
 		}
 	});
+}
+
+function keywordMatch() {
+	var filter = d3.select("#keyword").node().value;
 }
 
 function hider() {
