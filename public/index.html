@@ -29,10 +29,20 @@
 			</li>
 		</ul>
 		<form class="form-inline my-2 my-lg-0">
+			<div class="btn-group btn-group-toggle" data-toggle="buttons" onchange="changeView()">
+				<label class="btn btn-secondary active">
+					<input type="radio" name="options" value="locations" autocomplete="off" checked> Locations
+				</label>
+				<label class="btn btn-secondary">
+					<input type="radio" name="options" value="regions" autocomplete="off"> Regions
+				</label>
+			</div>
+		</form>
+		<form class="form-inline my-2 my-lg-0">
 			<form class="form">
 				<div class="form-group">
 					<label for="ranking-type" >Group by</label>
-					<select class="form-control" id="ranking-type" onchange="holding()">
+					<select class="form-control" id="ranking-type">
 						<option value= "all" >All</option>
 						<option value= "burglary" >Burglary</option>
 						<option value= "theft" >Theft</option>
@@ -76,6 +86,7 @@
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/d3.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.2/fuse.min.js"></script>
 

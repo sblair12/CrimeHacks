@@ -1,0 +1,154 @@
+[
+  {
+    "bound": 1,
+    "name": "South 40",
+    "topLat": 38.647286,
+    "topLon": -90.315679,
+    "bottomLat": 38.642951,
+    "bottomLon": -90.311463
+  },
+  {
+    "bound": 2,
+    "name": "Athletic Complex",
+    "topLat": 38.650444,
+    "topLon": -90.315087,
+    "bottomLat": 38.647122,
+    "bottomLon": -90.312548
+  },
+  {
+    "bound": 3,
+    "name": "The Village",
+    "topLat": 38.65144,
+    "topLon": -90.314875,
+    "bottomLat": 38.650164,
+    "bottomLon": -90.311588
+  },
+  {
+    "bound": 4,
+    "name": "Simon Hall",
+    "topLat": 38.648537,
+    "topLon": -90.312227,
+    "bottomLat": 38.647031,
+    "bottomLon": -90.311064
+  },
+  {
+    "bound": 5,
+    "name": "Mudd Field",
+    "topLat": 38.649278,
+    "topLon": -90.311668,
+    "bottomLat": 38.64832,
+    "bottomLon": -90.309611
+  },
+  {
+    "bound": 6,
+    "name": "Law and Business",
+    "topLat": 38.649998,
+    "topLon": -90.311442,
+    "bottomLat": 38.648926,
+    "bottomLon": -90.307377
+  },
+  {
+    "bound": 7,
+    "name": "DUC",
+    "topLat": 38.648332,
+    "topLon": -90.310762,
+    "bottomLat": 38.647232,
+    "bottomLon": -90.310222
+  },
+  {
+    "bound": 8,
+    "name": "Graham Chapel",
+    "topLat": 38.649067,
+    "topLon": -90.309252,
+    "bottomLat": 38.648092,
+    "bottomLon": -90.308686
+  },
+  {
+    "bound": 9,
+    "name": "Mallinckrodt",
+    "topLat": 38.648138,
+    "topLon": -90.309982,
+    "bottomLat": 38.646957,
+    "bottomLon": -90.309008
+  },
+  {
+    "bound": 10,
+    "name": "Olin Library",
+    "topLat": 38.648966,
+    "topLon": -90.308126,
+    "bottomLat": 38.6478,
+    "bottomLon": -90.307439
+  },
+  {
+    "bound": 11,
+    "name": "Chemistry",
+    "topLat": 38.647792,
+    "topLon": -90.30842,
+    "bottomLat": 38.646749,
+    "bottomLon": -90.30629
+  },
+  {
+    "bound": 12,
+    "name": "Engineering",
+    "topLat": 38.649603,
+    "topLon": -90.306969,
+    "bottomLat": 38.647683,
+    "bottomLon": -90.306208
+  },
+  {
+    "bound": 13,
+    "name": "Brookings Quad",
+    "topLat": 38.64842,
+    "topLon": -90.306001,
+    "bottomLat": 38.647729,
+    "bottomLon": -90.305298
+  },
+  {
+    "bound": 14,
+    "name": "Social Works",
+    "topLat": 38.647612,
+    "topLon": -90.306097,
+    "bottomLat": 38.64638,
+    "bottomLon": -90.304482
+  },
+  {
+    "bound": 15,
+    "name": "Physics",
+    "topLat": 38.649556,
+    "topLon": -90.305669,
+    "bottomLat": 38.648408,
+    "bottomLon": -90.301314
+  },
+  {
+    "bound": 16,
+    "name": "Hoyt Drive",
+    "topLat": 38.648299,
+    "topLon": -90.304193,
+    "bottomLat": 38.647235,
+    "bottomLon": -90.303604
+  },
+  {
+    "bound": 17,
+    "name": "Brookings Street",
+    "topLat": "38.648136,",
+    "topLon": "",
+    "bottomLat": 38.647541,
+    "bottomLon": -90.301144
+  },
+  {
+    "bound": 18,
+    "name": "Art School",
+    "topLat": 38.647595,
+    "topLon": -90.303836,
+    "bottomLat": 38.646158,
+    "bottomLon": -90.301448
+  },
+  {
+    "bound": 19,
+    "name": "Whittemore House and Garden",
+    "topLat": 38.646865,
+    "topLon": -90.310892,
+    "bottomLat": 38.645799,
+    "bottomLon": -90.308128
+  }
+]

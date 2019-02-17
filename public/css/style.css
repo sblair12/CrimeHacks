@@ -114,4 +114,7 @@ svg#canvas{
 #reportSubmit {
   margin-bottom: 20px;
 }
+.no-shadow {
+  box-shadow: none;
+}
 
