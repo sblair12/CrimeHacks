@@ -97,7 +97,7 @@ function update(data) {
 
 		svgSaver.exit().transition().delay(500).duration(500).remove();
 
-	var tip = d3.tip().attr('class', 'd3-tip').html(function(d) { return `<div class="tip-title">${d.location}</div><div class="tip-desc">${d.type}</div>`; });
+	var tip = d3.tip().attr('class', 'd3-tip').html(function(d) { return `<div class="tip-title">${d.location}</div><div class="tip-desc">${(d.category === undefined) ? "" : d.category.charAt(0).toUpperCase() + d.category.slice(1)}</div>`; });
 	tip.direction('n');
 	tip.offset([-5, 0]);
 

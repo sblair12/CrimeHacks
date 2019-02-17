@@ -43,11 +43,11 @@ app.post('/submitForm', (req, res) => {
   var crimeData = {
     date: req.body.date,
     time: req.body.time,
-    type: req.body.type,
+    category: req.body.type,
     description: req.body.description,
     lat: req.body.lat,
     lon: req.body.lng,
-    gotLocation: false
+    gotLocation: true
   };
   console.log(crimeData);
   Crime.create(crimeData, function(error, crime) {

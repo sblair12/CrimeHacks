@@ -100,11 +100,18 @@ svg#canvas{
 #main {
   box-shadow: 10px 10px 25px 0px rgba(99,99,99,1);
   background-color: white;
-  width: 75%;
+  width: 55%;
   margin-left: auto;
   margin-right: auto;
+  padding-left: 40px;
 }
 #locationField {
   margin-bottom: 1rem;
+}
+#reportHeader {
+  padding-top: 20px;
+}
+#reportSubmit {
+  margin-bottom: 20px;
 }
 
